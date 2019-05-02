@@ -3,8 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
 hello world
+{{.word}}
+<script>
+    // axios.get('/testJson')
+    // .then(function (response) {
+    //     console.log(response);
+    // })
+    // .catch(function (error) {
+    //     console.log(error);
+    // });
+
+    axios.get('/testRedis')
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+</script>
 </body>
 </html>
