@@ -12,6 +12,14 @@ type RedisClient struct {
 	client *redis.Client
 }
 
+func (this *RedisClient) GetClient(args...interface{})  *redis.Client {
+	return this.client
+}
+
+func (this *RedisClient) GetClusterClient(args...interface{})  *redis.ClusterClient {
+	return this.clusterClient
+}
+
 func (this *RedisClient) Do(args...interface{})  *redis.Cmd {
 	if this.clusterClient != nil {
 		return this.clusterClient.Do(args)
@@ -67,13 +75,13 @@ func GetCommonClient() *RedisClient  {
 	return commonClient
 }
 
+
 func init()  {
 	messageClient = &RedisClient{}
 	initClient(messageClient,config.RedisClient.GetMessage())
 
 	commonClient = &RedisClient{}
 	initClient(commonClient,config.RedisClient.GetMessage())
-
 }
 
 func initClient(client *RedisClient,addrs []string)  {

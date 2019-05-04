@@ -3,6 +3,7 @@ package Index
 import (
 	"../../cache"
 	_ "../../config"
+	"../../session"
 	"encoding/json"
 	"fmt"
 	"github.com/kataras/iris"
@@ -43,5 +44,19 @@ func Register(app *iris.Application) {
 		fmt.Println(str, err)
 		mjson, _ := json.Marshal(map[string]string{"name": str.(string)})
 		context.Write(mjson)
+	})
+
+	app.Get("/testSetSession", func(context iris.Context) {
+		s := session.Session.Start(context)
+		//设置
+		s.Set("name", "iris")
+		context.Write([]byte("ok"))
+	})
+
+	app.Get("/testGetSession", func(context iris.Context) {
+		s := session.Session.Start(context)
+		//设置
+		str:=s.Get("name")
+		context.Write([]byte(str.(string)))
 	})
 }
