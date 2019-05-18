@@ -98,11 +98,11 @@ func initClient(client *RedisClient,addrs []string)  {
 	pong, err := client.clusterClient.Ping().Result()
 	fmt.Println(pong, err)
 	if err != nil{
-		panic(err)
+		//panic(err)
 
 		client.client = redis.NewClient(&redis.Options{
 			Addr:     addrs[0],
-			Password: "123456", // no password set
+			Password: "", // no password set
 			DB:       0,  // use default DB
 		})
 

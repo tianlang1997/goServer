@@ -1,10 +1,9 @@
 package main
 
 import (
+	"./app/main_app"
 	"./config"
 	"flag"
-	"fmt"
-	"./app/main_app"
 )
 var env = flag.String("env", "default", "config file type: default|product")
 func main() {
