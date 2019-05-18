@@ -91,6 +91,8 @@ func initClient(client *RedisClient,addrs []string)  {
 		WriteTimeout: 50 * time.Millisecond,
 		DialTimeout: 50 * time.Millisecond,
 		PoolSize: 100,
+		Password: "123456",
+
 	})
 
 	pong, err := client.clusterClient.Ping().Result()
@@ -100,7 +102,7 @@ func initClient(client *RedisClient,addrs []string)  {
 
 		client.client = redis.NewClient(&redis.Options{
 			Addr:     addrs[0],
-			Password: "", // no password set
+			Password: "123456", // no password set
 			DB:       0,  // use default DB
 		})
 

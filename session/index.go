@@ -16,6 +16,7 @@ var Session = sessions.New(sessions.Config{
 func init()  {
 	db := redis.New(service.Config{
 		Addr:config.RedisClient.GetSession()[0],
+		Password:"123456",
 	})
 	// 按下control + C / cmd + C时关闭并解锁数据库
 	iris.RegisterOnInterrupt(func() {
