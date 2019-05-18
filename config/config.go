@@ -1,5 +1,39 @@
 package config
 
+import (
+	"../module"
+	"fmt"
+	"gopkg.in/yaml.v2"
+	"io/ioutil"
+	"path"
+	"runtime"
+)
+
+var env="default"
+var envMap= map[string]string{"defalut":"./config/defalut.yml","product":"./config/product.yml"}
+var config = module.Config{}
+var BasePath string
+func Init(e string)  {
+	_, filename, _, _ := runtime.Caller(1)
+	BasePath = path.Dir(filename)
+	if envMap[e] != ""	{
+		env=e
+	}
+	configPath := path.Join(BasePath,"./config/default.yml")
+	if(env == "product" ){
+		configPath = path.Join(BasePath,"./config/product.yml")
+	}
+
+	data ,rErr := ioutil.ReadFile(configPath)
+	if rErr!=nil{
+		panic(rErr)
+	}
+	yErr := yaml.Unmarshal([]byte(data), &config)
+	if yErr != nil {
+		panic(yErr)
+	}
+	fmt.Println("session addr:",config.Redis.Session.Addr)
+}
 type redisClient struct {
 }
 
