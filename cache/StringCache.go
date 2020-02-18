@@ -1,7 +1,7 @@
 package cache
 
 import (
-	"../connector/redisClient"
+	"goServer.com/m/connector/redisClient"
 	"time"
 )
 

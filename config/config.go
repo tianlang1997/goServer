@@ -1,8 +1,8 @@
 package config
 
 import (
-	"../module"
 	"fmt"
+	"goServer.com/m/module"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"path"
@@ -10,7 +10,7 @@ import (
 )
 
 var env="default"
-var envMap= map[string]string{"defalut":"./config/defalut.yml","product":"./config/product.yml"}
+var envMap= map[string]string{"defalut":"goServer.com/m/config/defalut.yml","product":"goServer.com/m/config/product.yml"}
 var config = module.Config{}
 var BasePath string
 func Init(e string)  {

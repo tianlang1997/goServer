@@ -1,9 +1,9 @@
 package main
 
 import (
-	"./app/main_app"
-	"./config"
 	"flag"
+	"goServer.com/m/app/main_app"
+	"goServer.com/m/config"
 )
 var env = flag.String("env", "default", "config file type: default|product")
 func main() {

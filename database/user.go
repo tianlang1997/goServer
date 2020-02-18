@@ -1,9 +1,9 @@
 package database
 
 import (
-	"../connector/mongodbClient"
+	"goServer.com/m/connector/mongodbClient"
+	"goServer.com/m/datastruct"
 	"gopkg.in/mgo.v2/bson"
-	"../datastruct"
 )
 
 type userData struct {

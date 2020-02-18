@@ -1,9 +1,9 @@
 package Index
 
 import (
-	"../../cache"
-	_ "../../config"
-	"../../session"
+	"goServer.com/m/cache"
+	_ "goServer.com/m/config"
+	"goServer.com/m/session"
 	"encoding/json"
 	"fmt"
 	"github.com/kataras/iris"

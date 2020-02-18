@@ -1,7 +1,7 @@
 package main_app
 
 import (
-	"../../routes/Index"
+	"goServer.com/m/routes/Index"
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/middleware/logger"
 	"github.com/kataras/iris/middleware/recover"

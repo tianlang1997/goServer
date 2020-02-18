@@ -1,9 +1,9 @@
 package redisClient
 
 import (
-	"../../config"
 	"fmt"
 	"github.com/go-redis/redis"
+	"goServer.com/m/config"
 	"time"
 )
 

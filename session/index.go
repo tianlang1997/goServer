@@ -1,7 +1,7 @@
 package session
 
 import (
-	"../config"
+	"goServer.com/m/config"
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/sessions"
 	"github.com/kataras/iris/sessions/sessiondb/redis"
